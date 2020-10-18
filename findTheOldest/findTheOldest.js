@@ -1,23 +1,23 @@
-var findTheOldest = function(array){
-    age=0;
+function findTheOldest(people){
+    var age=0;
     today=2020;
-    oldest=0;
-    for(i=0; i<array.legth; i++)
+   var person ={};
+    while(Object.entries(people).length >0)
     {
-        if(array[i].yearOfDeath != undefined)
+          person =people.shift();
+        if(person.yearOfDeath < 3000)
         {
-            temp_age=array[i].yearOfDeath-array[i].yearOfBirth;
+            temp_age=(person.yearOfDeath)- (person.yearOfBirth);
         }else
         {
-            temp_age=today-array[i].yearOfBirth;
+            temp_age=today-(person.yearOfBirth);
         }
         if(temp_age>age)
         {
             age=temp_age
-            oldest=array[i];
+            oldest=person;
         }
     }
     return oldest;
-
 }
-
+module.exports = findTheOldest;
